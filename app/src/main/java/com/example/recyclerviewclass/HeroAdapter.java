@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder>{
+public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder> {
     private Context context;
     private ArrayList<Hero> listHeroes;
 
@@ -33,9 +33,9 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
         heroViewHolder.imgHero.setImageResource(hero.getImg());
         heroViewHolder.tvName.setText(hero.getName());
         heroViewHolder.tvPhoneNumber.setText(hero.getPhoneNo());
-        if(hero.getNumMessage() != 0){
+        if (hero.getNumMessage() != 0) {
             heroViewHolder.tvNumMessage.setText(hero.getNumMessage() + "");
-        }else{
+        } else {
             heroViewHolder.tvNumMessage.setVisibility(View.GONE);
             heroViewHolder.imgTick.setVisibility(View.VISIBLE);
         }
@@ -44,9 +44,15 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
     @Override
     public int getItemCount() {
         return listHeroes.size();
+
     }
 
-    class HeroViewHolder extends RecyclerView.ViewHolder{
+    public void filterList(ArrayList<Hero> listHeroes) {
+        this.listHeroes = listHeroes;
+        notifyDataSetChanged();
+    }
+
+    class HeroViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvName, tvPhoneNumber, tvNumMessage;
         ImageView imgHero, imgTick;

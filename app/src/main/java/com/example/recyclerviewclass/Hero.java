@@ -5,12 +5,14 @@ public class Hero {
     private int img;
     private String phoneNo;
     private int numMessage;
+    private String email;
 
-    public Hero(String name, int img, String phoneNo, int numMessage) {
+    public Hero(String name, int img, String phoneNo, int numMessage, String email) {
         this.name = name;
         this.img = img;
         this.phoneNo = phoneNo;
         this.numMessage = numMessage;
+        this.email = email;
     }
 
     public String getName() {
@@ -43,5 +45,13 @@ public class Hero {
 
     public void setNumMessage(int numMessage) {
         this.numMessage = numMessage;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

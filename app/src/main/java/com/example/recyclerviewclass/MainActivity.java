@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         rvHeroes = findViewById(R.id.rvHeroes);
         etSearch = findViewById(R.id.etSearch);
 
-        listHeroes.add(new Hero("Rajesh Hamal", R.drawable.rajesh, "9808046576", 9));
-        listHeroes.add(new Hero("Bhuwan KC", R.drawable.bhuwan, "9804087659", 0));
-        listHeroes.add(new Hero("Dayahang Lama", R.drawable.dahayang, "9811346657", 3));
-        listHeroes.add(new Hero("Saugat Malla", R.drawable.saugat, "9845685264", 8));
+        listHeroes.add(new Hero("Rajesh Hamal", R.drawable.rajesh, "9808046576", 9, "rajeshdai@gmail.com"));
+        listHeroes.add(new Hero("Bhuwan KC", R.drawable.bhuwan, "9804087659", 0, "bhuwandai@gmail.com"));
+        listHeroes.add(new Hero("Dayahang Lama", R.drawable.dahayang, "9811346657", 3, "dayahangdai@gmail.com"));
+        listHeroes.add(new Hero("Saugat Malla", R.drawable.saugat, "9845685264", 8, "saugatdai@gmail.com"));
 
         adapter = new HeroAdapter(this, listHeroes);
         rvHeroes.setAdapter(adapter);

@@ -1,6 +1,7 @@
 package com.example.recyclerviewclass;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull HeroViewHolder heroViewHolder, int i) {
-        Hero hero = listHeroes.get(i);
+        final Hero hero = listHeroes.get(i);
         heroViewHolder.imgHero.setImageResource(hero.getImg());
         heroViewHolder.tvName.setText(hero.getName());
         heroViewHolder.tvPhoneNumber.setText(hero.getPhoneNo());
@@ -39,6 +40,18 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
             heroViewHolder.tvNumMessage.setVisibility(View.GONE);
             heroViewHolder.imgTick.setVisibility(View.VISIBLE);
         }
+
+        heroViewHolder.imgHero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("name", hero.getName());
+                intent.putExtra("image", hero.getImg());
+                intent.putExtra("phoneNumber", hero.getPhoneNo());
+                intent.putExtra("email", hero.getEmail());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
